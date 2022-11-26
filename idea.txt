@@ -1,0 +1,7 @@
+
+"id": "tipo numerico"
+"nome": "conta de agua",
+"preco": "100",
+"data": "2022-11-26",
+"status": "true";
+

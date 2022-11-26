@@ -7,8 +7,6 @@ app.use(express.json())
 app.use('/', userCheck)
 
 
-
-
 app.listen(port, () => {
   console.log(`App is running on port ${port}`)
 })
