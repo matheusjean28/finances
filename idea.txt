@@ -5,3 +5,22 @@
 "data": "2022-11-26",
 "status": "true";
 
+login
+verificar se o cliente mandou um token
+se sim -> manter seção
+se nao -> mandar mensagem de status 400 
+---
+
+se cliente logado:
+
+Metodo: GET ->
+mandar informações do cliente para a tela dele -> array com contas a pagar e status
+
+Metodo: GET passando id
+Retornar o elemento com o mesmo id que o usuario mandou
+
+------------
+
+Metodo: POST
+Cadastra uma nova tarefa na lista
+Gera um ID novo para a tarefa na lista de tarefas

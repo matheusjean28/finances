@@ -7,46 +7,41 @@ const database = [{
     email: 'matheus@123.com',
     pass: 123,
     token: 'asdasd'
-}, {
-    user1: {
-        id: 1,
-        nome: "conta de agua",
-        preco: "100",
-        data: "2022-11-26",
-        status: "true"
-    },
-    user2: {
-        id: 2,
-        nome: "conta de energia",
-        preco: "92,0",
-        data: "2022-11-26",
-        status: "true"
-    },
-    user3: {
-        id: 3,
-        nome: "aluguel",
-        preco: "70",
-        data: "2022-11-26",
-        status: "true"
-    },
-    user4: {
-        id: 4,
-        nome: "outros",
-        preco: "13",
-        data: "2022-11-26",
-        status: "true"
-    },
+
 }]
 
-function  create_pagament(req, res, next){
-    let item = req.body;
-    console.log('este é o item: ',item)
-    database.push(item)
-    console.log(database)
-    next()
-}
+let counts = [{
+    "user1": {
+        "id": 1,
+        "nome": "conta de agua",
+        "preco": "100",
+        "data": "2022-11-26",
+        "status": "true"
+    }
+},
+{
+    "id": "testedois",
+    "nome": "123",
+    "preco": "1654",
+    "data": "2022-11-26",
+    "status": "true"
+},
+{
+    "id": "testedois",
+    "nome": "123",
+    "preco": "1654",
+    "data": "2022-11-26",
+    "status": "true"
+},
+{
+    "id": "1",
+    "nome": "123",
+    "preco": "1654",
+    "data": "2022-11-26",
+    "status": "true"
+}]
 
-
+//checa se o id ou token do usuario é valido
 function check_user_id(req, res, next) {
     if (req.body.token) {
         if (req.body.token == "asdasd") {
@@ -70,22 +65,62 @@ function check_user_id(req, res, next) {
     }
 }
 
-// console.log(database[1].user)
 
+//criar uma nova conta na lista de contas
+function create_pagament(req, res, next) {
+    let item = req.body;
+    console.log(counts)
+    console.log('este é o item', item)
+    //colocar o item dentro do counts, que é a lista de contas ficcticia
+    counts.push(item)
+    next()
+}
+
+//deleta o item com o id igual ao 
+function delete_pagament(req, res, next) {
+    let item_deleted = req.body.id
+
+    //pegar o index do e para deletar o mesmo do array
+    console.log('teste foi', item_deleted)
+    counts.map((e) => {
+        if (e === item_deleted ){
+        console.log()
+
+    }
+})
+next()
+}
+
+
+// console.log(database[1].user)
 router.get('/', check_user_id, (req, res) => {
     //depois de validado a seção do usuario, mandar os dados do mesmo
     //call para o banco de dados retornando os dados do usuario
     //usando id do mesmo
 
-    res.json(database[1])
+    res.json(counts)
 })
 
-router.post('/', create_pagament, (req,res) => {
-    console.log('sua conta foi criada com sucesso')
-    // res.send('well done')
-    // console.log(database[1])
-    res.json(database)
 
+
+router.get('/mycount', check_user_id, (req, res) => {
+    //depois de validado a seção do usuario, mandar os dados do mesmo
+    //call para o banco de dados retornando os dados do usuario
+    //usando id do mesmo
+    res.json(counts)
+})
+
+
+router.post('/', create_pagament, (req, res) => {
+    console.log('sua conta foi criada com sucesso')
+    res.json(counts)
+})
+
+
+
+router.delete('/', delete_pagament, (req, res) => {
+
+    res.send('item deletado com sucesso ')
 })
 
 module.exports = router
