@@ -1,0 +1,5 @@
+#todos os arquivos abaixos para ignorar
+
+*.log
+
+.node_modules

@@ -69,8 +69,12 @@ function check_user_id(req, res, next) {
 //criar uma nova conta na lista de contas
 function create_pagament(req, res, next) {
     let item = req.body;
-    console.log(counts)
-    console.log('este é o item', item)
+
+    let teste = Math.random(1 * 100) 
+
+
+
+
     //colocar o item dentro do counts, que é a lista de contas ficcticia
     counts.push(item)
     next()
@@ -112,8 +116,9 @@ router.get('/mycount', check_user_id, (req, res) => {
 
 
 router.post('/', create_pagament, (req, res) => {
-    console.log('sua conta foi criada com sucesso')
-    res.json(counts)
+
+    //res.json(counts)
+    res.json()
 })
 
 
