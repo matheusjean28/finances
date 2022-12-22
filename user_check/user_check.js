@@ -1,6 +1,8 @@
 const crypto = require("crypto");
 const express = require('express')
 const router = express.Router()
+const create_pagament =  require('../middware/post_check_payment')
+
 
 
 const database = [{
@@ -54,7 +56,7 @@ function check_user_id(req, res, next) {
 
 
 //criar uma nova conta na lista de contas
-function create_pagament(req, res, next) {
+/*function create_pagament(req, res, next) {
 
     let nome = req.body.nome;
     let preco = req.body.preco;
@@ -66,7 +68,7 @@ function create_pagament(req, res, next) {
     adicionar validação para tamanhos dos campos
     se o tamanho e o formato do campo for valido
     adicionar o mesmo no contexto de payment para proseguir para a proxima tarefa
-    */ 
+    
 
 
     let payment = {nome, preco, data, status, id}
@@ -76,6 +78,7 @@ function create_pagament(req, res, next) {
     counts.push(payment)
     next()
 }
+*/
 
 //deleta o item com o id igual ao 
 function delete_pagament(req, res, next) {
