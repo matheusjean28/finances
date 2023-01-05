@@ -5,6 +5,9 @@
 "data": "2022-11-26",
 "status": "true";
 
+
+para o login chamar uma outra api que vai verificar se esta tudo ok e 
+repasar os dados para esta api
 login
 verificar se o cliente mandou um token
 se sim -> manter seção
@@ -24,3 +27,9 @@ Retornar o elemento com o mesmo id que o usuario mandou
 Metodo: POST
 Cadastra uma nova tarefa na lista
 Gera um ID novo para a tarefa na lista de tarefas
+
+se no metodo post o middware verificar alguma inconformidade nos parametros
+ele vai rejeitar e retornar um erro, avisando o que deu errado
+
+se nao
+ele vai chamar a função next e ela vai criar uma conta usando os dados que estao no req.body

@@ -117,8 +117,8 @@ router.get('/mycount', check_user_id, (req, res) => {
 
 router.post('/create', create_pagament, (req, res) => {
     /*responder com o ultimo pagamento adicionado */
-    console.log('teste ==.>>',req.itemPayment)
-    res.json()
+    let data = req.body
+    res.json(data)
 })
 
 
