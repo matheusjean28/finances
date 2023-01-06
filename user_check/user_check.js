@@ -40,8 +40,6 @@ router.get('/', check_user_id, (req, res) => {
     res.json(counts)
 })
 
-
-
 router.get('/mycount', check_user_id, (req, res) => {
     //depois de validado a seção do usuario, mandar os dados do mesmo
     //call para o banco de dados retornando os dados do usuario
@@ -49,14 +47,11 @@ router.get('/mycount', check_user_id, (req, res) => {
     res.json(counts)
 })
 
-
 router.post('/create', create_pagament, (req, res) => {
     /*responder com o ultimo pagamento adicionado */
     let data = req.body
     res.json(data)
 })
-
-
 
 router.delete('/', delete_pagament, (req, res) => {
 

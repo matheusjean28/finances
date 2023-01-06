@@ -1,6 +1,12 @@
 
 //checa se o id do usuario é valido
+const database = [{
+    nome: 'matheus',
+    email: 'matheus@123.com',
+    pass: 123,
+    token: 'asdasd'
 
+}]
 function check_user_id(req, res, next) {
     if (req.body.token) {
         if (req.body.token == "asdasd") {
