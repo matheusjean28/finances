@@ -2,8 +2,8 @@ const crypto = require("crypto");
 const express = require('express')
 const router = express.Router()
 const create_pagament =  require('../middware/post_check_payment')
-
-
+const check_user_id = require('../middware/user_check_id')
+const delete_pagament = require('../middware/delete_payment')
 
 const database = [{
     nome: 'matheus',
@@ -29,71 +29,6 @@ let counts = [{
     "data": "2022-11-26",
     "status": "true"
 }]
-
-//checa se o id ou token do usuario é valido
-function check_user_id(req, res, next) {
-    if (req.body.token) {
-        if (req.body.token == "asdasd") {
-            next()
-        } else {
-            // res.status(400).json({ message: 'seção ou token expirados, tente tente novamente!' })
-        }
-    }
-    else {
-        if (req.body.nome == database[0].nome, req.body.email == database[0].email, req.body.pass == database[0].pass) {
-            console.log('logando usuario')
-            next()
-        }
-        else {
-            // res.status(404).json({ message: 'usuario nao encontrado' })
-            //função acima bloqueia o usuario de proseguir para a proxima pagina 
-            // caso o token ou id sejam invelidos, desativada somente para proseguir
-            //com o desenvolvimento da api -- remover o next() depois
-            next()
-        }
-    }
-}
-
-
-//criar uma nova conta na lista de contas
-/*function create_pagament(req, res, next) {
-
-    let nome = req.body.nome;
-    let preco = req.body.preco;
-    let data = req.body.data;
-    let status = req.body.status;
-    let id = crypto.randomBytes(16).toString("hex");
-
-    /* 
-    adicionar validação para tamanhos dos campos
-    se o tamanho e o formato do campo for valido
-    adicionar o mesmo no contexto de payment para proseguir para a proxima tarefa
-    
-
-
-    let payment = {nome, preco, data, status, id}
-    console.log('este é o paymenbte',payment)
-
-    //colocar o item dentro do counts, que é a lista de contas ficcticia
-    counts.push(payment)
-    next()
-}
-*/
-
-//deleta o item com o id igual ao 
-function delete_pagament(req, res, next) {
-    let item_deleted = req.body.id
-
-    //pegar o index do e para deletar o mesmo do array
-    console.log('teste foi', item_deleted)
-    counts.map((e) => {
-        if (e === item_deleted ){
-        console.log()
-
-    }
-})
-next()
-}
 
 
 // console.log(database[1].user)
